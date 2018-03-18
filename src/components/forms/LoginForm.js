@@ -28,13 +28,20 @@ class LoginForm extends Component {
         const errors = this.validate(this.state.data);
         this.setState({ errors });
         if(Object.keys(errors).length === 0) {
-            
-            this.props.submit(this.state.data)
+            this.setState({ loading: true })
+            this.props
+            .submit(this.state.data)
             .catch(err => {
                 const serverErrors = {};
-                serverErrors.email = err.email[0];
-                serverErrors.password = err.password[0];
-                this.setState({errors: serverErrors})
+                if(err.response.data.errors.email){
+                    serverErrors.email = err.response.data.errors.email[0];
+                }
+
+                if(err.response.data.errors.password){
+                    serverErrors.password = err.response.data.errors.password;
+                }
+
+                this.setState({errors: serverErrors, loading: false })
             });
         }
     }
@@ -49,9 +56,9 @@ class LoginForm extends Component {
     }
 
     render(){
-        const { data, errors } = this.state;
+        const { data, errors, loading } = this.state;
         return (
-            <form onSubmit={ this.onSubmit }>
+            <form onSubmit={ this.onSubmit } loading={loading.toString()}>
                 <div className="inputwrapper">
                         <label htmlFor="email">
                             Email 

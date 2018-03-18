@@ -8,11 +8,9 @@ import { loginRequest } from '../../actions/auth';
 
 class LoginPage extends Component {
 
-  // submit = data => {
-  //   this.props.loginRequest(data).then(() => this.props.history.push('/dashboard'));
-  // }
-
-  submit = data => this.props.loginRequest(data).then(() => this.props.history.push("/dashboard"));
+  submit = (data) => 
+    this.props.loginRequest(data).then(() => this.props.history.push('/dashboard'));
+    
   render(){
     return (
       <div className="ch-login">

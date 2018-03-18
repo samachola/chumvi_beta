@@ -6,9 +6,9 @@ export const userLoggedIn = (user) => ({
     user
 });
 
-export const loginRequest = credentials => dispatch =>{
+export const loginRequest = credentials => dispatch =>
   api.user.login(credentials).then(user => {
     dispatch(userLoggedIn(user));
   });
-}
+
     
