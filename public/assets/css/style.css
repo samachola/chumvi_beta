@@ -305,3 +305,19 @@ p {
     color: #3a5365;
     padding: .2em;
 }
+
+.user-actions {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.user-actions button,
+.user-actions a {
+    float: right;
+    margin: 1em .3em;
+    padding: .2em .7em;
+    border: 1px solid #3a5365;
+    color: #3a5365;
+    text-transform: uppercase;
+    letter-spacing: .2em;
+}
