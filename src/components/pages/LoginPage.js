@@ -10,7 +10,7 @@ class LoginPage extends Component {
 
   submit = (data) => 
     this.props.loginRequest(data).then(() => this.props.history.push('/dashboard'));
-    
+
   render(){
     return (
       <div className="ch-login">
@@ -30,8 +30,8 @@ class LoginPage extends Component {
 
           <div className="form">
             <div className="tab">
-              <Link className="active" to="/">login</Link>
-      	  		<Link to="/">signup</Link>
+              <Link className="active" to="/login">login</Link>
+      	  		<Link to="/signup">signup</Link>
             </div>
             <LoginForm submit={this.submit} />
           </div>
