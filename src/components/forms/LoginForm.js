@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Validator from 'validator';
-import propTypes from 'proptypes';
+import PropTypes from 'proptypes';
 
 class LoginForm extends Component {
     constructor(props){
@@ -28,7 +28,14 @@ class LoginForm extends Component {
         const errors = this.validate(this.state.data);
         this.setState({ errors });
         if(Object.keys(errors).length === 0) {
-            this.props.submit(this.state.data);
+            
+            this.props.submit(this.state.data)
+            .catch(err => {
+                const serverErrors = {};
+                serverErrors.email = err.email[0];
+                serverErrors.password = err.password[0];
+                this.setState({errors: serverErrors})
+            });
         }
     }
 
@@ -50,7 +57,7 @@ class LoginForm extends Component {
                             Email 
                             { errors.email && <span className="errs">{ errors.email }</span> }
                         </label>
-                        <input type="text" value={data.email} name="email" id="email" onChange={this.onChange} />
+                        <input type="email" value={data.email} name="email" id="email" onChange={this.onChange} />
                 </div>
 
                 <div className="inputwrapper">
@@ -76,7 +83,7 @@ class LoginForm extends Component {
 }
 
 LoginForm.propTypes = {
-    submit: propTypes.func.isRequired
+    submit: PropTypes.func.isRequired
 }
 
 export default LoginForm;
