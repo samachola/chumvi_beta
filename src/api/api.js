@@ -9,7 +9,8 @@ export default {
     categories: {
       all: () => axios.get(`${API_URL}/category`).then(response => response.data),
       add: data => axios.post(`${API_URL}/category`, data).then(response => response.data),
-      update: (data, id) => axios.put(`${API_URL}/category/${id}`, data).then(response => response.data)
+      update: (data, id) => axios.put(`${API_URL}/category/${id}`, data).then(response => response.data),
+      delete: id => axios.delete(`${API_URL}/category/${id}`).then(response => response.data)
     },
     recipes: {
       all: () => axios.get(`${API_URL}/recipe`).then(response => response.data),

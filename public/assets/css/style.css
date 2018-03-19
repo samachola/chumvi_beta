@@ -428,3 +428,14 @@ p {
     font-family: 'Ubuntu Condensed', serif;
     padding: 1em;
 }
+
+.err {
+    width: 70%;
+    margin: 0 auto;
+    padding: 1em;
+    text-align: center;
+}
+
+.err p {
+    color: #ec1717;
+}
