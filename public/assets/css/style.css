@@ -311,6 +311,11 @@ p {
     padding: 1em 0em;
 }
 
+.ch-recipes .recipes .recipe .actions button {
+    background: transparent;
+    padding: .2em;
+}
+
 .ch-recipes .recipes .recipe .actions svg {
     color: #3a5365;
     padding: .2em;

@@ -5,8 +5,10 @@ import {
     GET_USER_RECIPES, 
     NEW_CATEGORY_SUCCESS,
     EDIT_CATEGORY_SUCCESS,
+    DELETE_CATEGORY_SUCCESS,
     NEW_RECIPE_SUCCESS,
-    DELETE_CATEGORY_SUCCESS
+    EDIT_RECIPE_SUCCESS
+    
 } from '../types/types';
 import api from '../api/api';
 import setAuthorizationToken from '../utils/setAuthorizationToken';
@@ -52,6 +54,11 @@ export const getRecipes = (recipes) => ({
 
 export const addRecipe = (recipe) => ({
     type: NEW_RECIPE_SUCCESS,
+    recipe
+});
+
+export const editRecipe = (recipe) => ({
+    type: EDIT_RECIPE_SUCCESS,
     recipe
 });
 
@@ -101,6 +108,12 @@ export const getRecipesRequest = () => dispatch =>
 export const addRecipeRequest = (data) => dispatch =>
     api.recipes.add(data).then(recipe => {
         dispatch(addRecipe(recipe));
-    }); 
+    });
+
+export const editRecipeRequest = (data, id) => dispatch =>
+    api.recipes.update(data, id).then(recipe => {
+        dispatch(editRecipe(recipe));
+    });
+
 
     
