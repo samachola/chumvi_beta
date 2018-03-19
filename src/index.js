@@ -9,6 +9,8 @@ import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import rootReducer from './rootReducer';
 import { userLoggedIn } from './actions/auth';
+import setAuthorizationToken from './utils/setAuthorizationToken';
+
 
 
 const store = createStore( rootReducer, composeWithDevTools(
@@ -16,6 +18,7 @@ const store = createStore( rootReducer, composeWithDevTools(
 ));
 
 if(localStorage.token) {
+  setAuthorizationToken(localStorage.token);
   const user = { token: localStorage.token };
   store.dispatch(userLoggedIn(user));
 }

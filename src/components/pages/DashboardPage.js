@@ -3,78 +3,27 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'proptypes';
 import * as actions from '../../actions/auth';
+import CategoryPage from './CategoryPage';
+import RecipePage from './RecipePage';
+import AddCategory from './modals/addCategory';
+import AddRecipe from './modals/addRecipe';
+
 
 const Dashboard = ({ isAuthenticated, logout }) => (
   <div className="ch-home">
     <div className="ch-categories">
       <div className="intro">
           <h2> my Categories</h2>
-          <div className="add">
-              <Link to="/">ADD</Link>
-          </div>
+          <AddCategory />
       </div>
-      <div className="categories">
-          <div className="category-item">
-              <h2>Breakfast</h2>
-
-              <div className="actions">
-                  <i className="fas fa-exclamation-circle"/>
-                  <i className="fas fa-edit"/>
-                  <i className="fas fa-trash-alt"/>
-              </div>
-          </div>
-      </div>
+      <CategoryPage />
     </div>
     <div className="ch-recipes">
       <div className="user-actions">
-      { isAuthenticated ? <button onClick={() => logout()}>Logout</button> : <Link to="/login">LOGIN</Link> }
-        
+        { isAuthenticated ? <button onClick={() => logout()}>Logout</button> : <Link to="/login">LOGIN</Link> }
+        <AddRecipe />
       </div>
-      <div className="recipes">
-
-        <div className="recipe">
-            <div className="meta">
-                <p>Breakfast</p>
-            </div>
-
-            <h2>Recipe Item</h2>
-
-            <div className="actions">
-                <i className="fas fa-exclamation-circle"/>
-                <i className="fas fa-edit"/>
-                <i className="fas fa-trash-alt"/>
-            </div>
-        </div>
-
-        <div className="recipe">
-            <div className="meta">
-                <p>Breakfast</p>
-            </div>
-
-            <h2>Recipe Item</h2>
-
-            <div className="actions">
-                <i className="fas fa-exclamation-circle"/>
-                <i className="fas fa-edit"/>
-                <i className="fas fa-trash-alt"/>
-            </div>
-        </div>
-
-        <div className="recipe">
-            <div className="meta">
-                <p>Breakfast</p>
-            </div>
-
-            <h2>Recipe Item</h2>
-
-            <div className="actions">
-                <i className="fas fa-exclamation-circle"/>
-                <i className="fas fa-edit"/>
-                <i className="fas fa-trash-alt"/>
-            </div>
-        </div>
-      </div>
-
+      <RecipePage />
     </div>
   </div>
 

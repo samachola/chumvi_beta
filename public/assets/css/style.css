@@ -213,11 +213,13 @@ p {
     text-align: right;
 }
 
-.ch-home .ch-categories .intro .add a {
+.ch-home .ch-categories .intro .add button {
     color: #E8CE4D;
     border: 1px solid #E8CE4D;
     padding: .2em 3em;
     text-transform: uppercase;
+    background: transparent;
+    border-radius: 0 !important;
 }
 
 .ch-home .ch-categories .categories {
@@ -247,6 +249,13 @@ p {
 .ch-home .ch-categories .categories .category-item .actions svg {
     color: #E8CE4D;
     padding: .2em;
+    font-size: 1.5em;
+}
+
+.ch-home .ch-categories .categories .category-item .actions button {
+    background: transparent;
+    padding: .2em;
+    display: inline-block;
 }
 
 .ch-recipes {
@@ -304,11 +313,16 @@ p {
 .ch-recipes .recipes .recipe .actions svg {
     color: #3a5365;
     padding: .2em;
+    font-size: 1.5em;
 }
 
 .user-actions {
     width: 90%;
     margin: 0 auto;
+}
+
+.user-actions button.add-recipe {
+    float: left;
 }
 
 .user-actions button,
@@ -320,4 +334,79 @@ p {
     color: #3a5365;
     text-transform: uppercase;
     letter-spacing: .2em;
+}
+
+.ui.active.modal {
+    display: block;
+    margin: 8em auto !important;
+}
+
+.modalheader {
+    background: #3a5365 !important;
+    text-align: center;
+    color: #E8CE4D !important;
+    letter-spacing: .2em;
+    font-family: 'Ubuntu', serif;
+    text-transform: uppercase;
+    font-size: .8em !important;
+}
+
+.category-form {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.category-form .inputwrapper {
+    width: 100%;
+    margin: 1em auto;
+    font-family: 'Ubuntu Condensed', serif;
+    display: block;
+}
+
+.category-form .inputwrapper label {
+    display: block;
+    color: #40596b;
+    margin-bottom: 2px;
+}
+
+.category-form .inputwrapper label .errs {
+    font-size: .7em;
+    color: #ec1717;
+    display: block;
+}
+
+.category-form .inputwrapper input[type="text"],
+.category-form .inputwrapper textarea,
+.category-form .inputwrapper select {
+    width: 100%;
+    background: transparent;
+    color: #40596b;
+    font-family: 'Ubuntu Condensed', serif;
+    border: 1px solid #40596b;
+    padding: 1em 2em;
+    font-size: .9em;
+}
+
+.category-form .inputwrapper select {
+    height: 3em;
+    border-radius: 0;
+    padding: 1em;
+}
+
+.category-form .login-action {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.category-form .login-action input[type="submit"] {
+    background: #40596b;
+    border: none;
+    padding: 1em 2em;
+    color: #E8CE4D;
+    font-size: 1em;
+    letter-spacing: .2em;
+    font-family: 'Ubuntu Condensed', serif;
+    width: 100%;
+    margin: 0 auto;
+    text-transform: uppercase;
 }

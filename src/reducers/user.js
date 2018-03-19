@@ -1,4 +1,8 @@
-import { USER_LOGGED_IN, USER_LOGGED_OUT, USER_REGISTRATION_SUCCESS } from "../types/types";
+import { 
+    USER_LOGGED_IN, 
+    USER_LOGGED_OUT, 
+    USER_REGISTRATION_SUCCESS,
+} from "../types/types";
 
 const user = (state = {}, action = {}) => {
     switch(action.type){

@@ -16,7 +16,7 @@ class LoginPage extends Component {
       <div className="ch-login">
         <div className="intro">
           {/* eslint-disable */}
-          <video loop muted autoPlay className="fullscreen-bg__video"> 
+          <video loop muted autoPlay className="fullscreen-bg__video">
             <source src={bg} type="video/mp4" />
           </video>
           {/* eslint-enable */}
