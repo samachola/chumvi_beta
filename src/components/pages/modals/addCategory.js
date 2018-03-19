@@ -33,12 +33,21 @@ class AddCategory extends React.Component {
                 .then(() => window.location.reload())
                 .catch((err) => {
                     const serverErrors = {};
-                    if(err.response.data.errors.category_name){
-                        serverErrors.category_name = err.response.data.errors.category_name[0];
+                    
+                    if(err.response.status === 406) {
+                        if(err.response.data && !err.response.data.status){
+                            serverErrors.category_name = err.response.data.message
+                        }
                     }
+                    
+                    if(err.response.status === 422) {
+                        if(err.response.data.errors.category_name){
+                            serverErrors.category_name = err.response.data.errors.category_name[0];
+                        }
 
-                    if(err.response.data.errors.category_description){
-                        serverErrors.category_description = err.response.data.errors.category_description[0];
+                        if(err.response.data.errors.category_description){
+                            serverErrors.category_description = err.response.data.errors.category_description[0];
+                        }
                     }
 
                     this.setState({errors: serverErrors})

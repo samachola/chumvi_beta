@@ -3,6 +3,7 @@ import PropTypes from 'proptypes';
 import { connect } from 'react-redux';
 import { getCategoriesRequest } from '../../actions/auth';
 import EditCategory from './modals/editCategory';
+import DeleteCategory from './modals/deleteCategory';
 
 class CategoryPage extends Component {
     state = {
@@ -24,7 +25,7 @@ class CategoryPage extends Component {
                         <div className="actions">
                             <i className="fas fa-exclamation-circle"/>
                             <EditCategory category={category}/>
-                            <i className="fas fa-trash-alt"/>
+                            <DeleteCategory category={category} />
                         </div>
                     </div>
                 ))}      

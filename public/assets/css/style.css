@@ -410,3 +410,21 @@ p {
     margin: 0 auto;
     text-transform: uppercase;
 }
+
+.cta {
+    width: 50%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-gap: 2em;
+    padding: 3em;
+}
+
+.cta button {
+    background: #3a5365;
+    color: #E8CE4D;
+    text-transform: uppercase;
+    letter-spacing: .2em;
+    font-family: 'Ubuntu Condensed', serif;
+    padding: 1em;
+}
