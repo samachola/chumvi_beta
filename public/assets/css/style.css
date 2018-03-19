@@ -206,6 +206,7 @@ p {
     font-size: 1.2em;
     text-transform: uppercase;
     text-align: left;
+    padding-top: 1em;
 }
 
 .ch-home .ch-categories .intro .add {

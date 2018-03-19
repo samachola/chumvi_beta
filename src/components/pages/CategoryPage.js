@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { getCategoriesRequest } from '../../actions/auth';
 import EditCategory from './modals/editCategory';
 import DeleteCategory from './modals/deleteCategory';
+import ViewCategory from './modals/viewCategory';
 
 class CategoryPage extends Component {
     state = {
@@ -23,8 +24,8 @@ class CategoryPage extends Component {
                         <h2>{category.category_name}</h2>
 
                         <div className="actions">
-                            <i className="fas fa-exclamation-circle"/>
-                            <EditCategory category={category}/>
+                            <ViewCategory category={category} />
+                            <EditCategory category={category} />
                             <DeleteCategory category={category} />
                         </div>
                     </div>
