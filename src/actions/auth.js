@@ -106,8 +106,8 @@ export const deleteCategoryRequest = (id) => dispatch =>
         dispatch(deleteCategory(categories));
     });
 
-export const getRecipesRequest = (page) => dispatch =>
-    api.recipes.all(page).then(recipes => {
+export const getRecipesRequest = (page, q) => dispatch =>
+    api.recipes.all(page, q).then(recipes => {
         console.log(recipes);
         dispatch(getRecipes(recipes));
     });

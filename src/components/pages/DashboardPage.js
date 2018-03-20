@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'proptypes';
@@ -9,25 +9,38 @@ import AddCategory from './modals/addCategory';
 import AddRecipe from './modals/addRecipe';
 
 
-const Dashboard = ({ isAuthenticated, logout }) => (
-  <div className="ch-home">
-    <div className="ch-categories">
-      <div className="intro">
-          <h2> my Categories</h2>
-          <AddCategory />
-      </div>
-      <CategoryPage />
-    </div>
-    <div className="ch-recipes">
-      <div className="user-actions">
-        { isAuthenticated ? <button onClick={() => logout()}>Logout</button> : <Link to="/login">LOGIN</Link> }
-        <AddRecipe />
-      </div>
-      <RecipePage />
-    </div>
-  </div>
+class Dashboard extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      isAuthenticated: props.isAuthenticated,
+      logout: props.logout,
+      searchParam: ''
+    }
+  }
 
-);
+  render(){
+    return (
+      <div className="ch-home">
+        <div className="ch-categories">
+          <div className="intro">
+              <h2> my Categories</h2>
+              <AddCategory />
+          </div>
+          <CategoryPage />
+        </div>
+        <div className="ch-recipes">
+          <div className="user-actions">
+            
+            { this.state.isAuthenticated ? <button onClick={() => this.state.logout()}>Logout</button> : <Link to="/login">LOGIN</Link> } 
+            <AddRecipe />
+          </div>
+          <RecipePage />
+        </div>
+      </div>
+    )
+  }
+} 
 
 Dashboard.propTypes = {
   isAuthenticated: PropTypes.bool.isRequired,

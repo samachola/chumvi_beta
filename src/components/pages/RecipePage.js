@@ -13,22 +13,31 @@ class RecipePage extends Component {
         this.state = {
             loading: false,
             page: 1,
-            pages: 1
+            pages: 1,
+            searchParam: ''
         }
 
         this.handlePages = this.handlePages.bind(this);
+        this.searchHandler = this.searchHandler.bind(this);
     }
 
     componentDidMount(){
-        this.getRecipes(this.state.page);
+        this.getRecipes(this.state.page, this.props.search);
     }
 
-    getRecipes(pageNum){
-        this.props.getRecipesRequest(pageNum).then(() => this.setState({ page: this.props.page, pages: this.props.pages }));
+    getRecipes(pageNum, search){
+        console.log(pageNum, search);
+        this.props.getRecipesRequest(pageNum, search).then(() => this.setState({ page: this.props.page, pages: this.props.pages }));
     }
 
     handlePages(pageNum) {
-        this.getRecipes(pageNum);
+        this.getRecipes(pageNum, this.props.search);
+    }
+
+    searchHandler(e){
+        const searchValue = e.target.value;
+        this.setState({ searchParam: searchValue });
+        this.getRecipes(this.state.page, this.state.searchParam);
     }
 
     render(){
@@ -42,10 +51,12 @@ class RecipePage extends Component {
                 {i}
                 </Pagination.Item>
             )
-        
         }
         return (
             <div className="ch-recipes-container">
+                <div className="ch-search">
+                    <input type="text" name="search" value={this.state.searchParam} placeholder="search" onChange={this.searchHandler} />
+                </div>
                 <div className="recipes">
                     { this.props.recipes && this.props.recipes.map((recipe) => (
                         <div key={recipe.id} className="recipe">
@@ -78,7 +89,8 @@ RecipePage.propTypes = {
     getRecipesRequest: PropTypes.func.isRequired,
     recipes: PropTypes.instanceOf(Object).isRequired,
     page: PropTypes.number.isRequired,
-    pages: PropTypes.number.isRequired
+    pages: PropTypes.number.isRequired,
+    search: PropTypes.string.isRequired
 }
 
 function mapStateToProps(state){

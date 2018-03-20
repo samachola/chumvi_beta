@@ -332,22 +332,41 @@ p {
 
 .user-actions {
     width: 90%;
-    margin: 0 auto;
+    margin: 1em auto;
 }
 
-.user-actions button.add-recipe {
-    float: left;
+.ch-search {
+    width: 90%;
+    margin: 0 auto;
 }
 
 .user-actions button,
 .user-actions a {
-    float: right;
-    margin: 1em .3em;
-    padding: .2em .7em;
+    margin: 2em;
+    padding: .8em 1em;
     border: 1px solid #3a5365;
     color: #3a5365;
     text-transform: uppercase;
     letter-spacing: .2em;
+    font-size: .8em;
+    float: right;
+}
+
+.user-actions button:hover,
+.user-actions a:hover {
+    color: #E8CE4D;
+    background: #3a5365;
+}
+
+.ch-search input[type="text"] {
+    height: 2.5em;
+    background: transparent;
+    border: 1px solid #3a5365;
+    font-family: 'Ubuntu Condensed', serif;
+    padding: .3em .8em;
+    margin-top: 1.3em;
+    color: #3a5365;
+    width: 40%;
 }
 
 .ui.active.modal {

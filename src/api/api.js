@@ -13,7 +13,12 @@ export default {
       delete: id => axios.delete(`${API_URL}/category/${id}`).then(response => response.data)
     },
     recipes: {
-      all: (page) => axios.get(`${API_URL}/recipe?page=${page}`).then(response => response.data),
+      all: (page, q) => {
+        if(typeof q === 'undefined' || q === ''){
+          return axios.get(`${API_URL}/recipe?page=${page}`).then(response => response.data)
+        }
+        return axios.get(`${API_URL}/recipe?q=${q}&page=${page}`).then(response => response.data)
+      },
       add: data => axios.post(`${API_URL}/recipe`, data).then(response => response.data),
       update: (data, id) => axios.put(`${API_URL}/recipe/${id}`, data).then(response => response.data),
       delete: id => axios.delete(`${API_URL}/recipe/${id}`).then(response => response.data)
