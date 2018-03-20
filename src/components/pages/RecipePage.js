@@ -16,10 +16,10 @@ class RecipePage extends Component {
             pages: 1
         }
 
-        this.handlePage = this.handlePage.bind(this);
+        this.handlePages = this.handlePages.bind(this);
     }
 
-    componentWillMount(){
+    componentDidMount(){
         this.getRecipes(this.state.page);
     }
 
@@ -27,46 +27,48 @@ class RecipePage extends Component {
         this.props.getRecipesRequest(pageNum).then(() => this.setState({ page: this.props.page, pages: this.props.pages }));
     }
 
-    handlePage(pageNum){
+    handlePages(pageNum) {
         this.getRecipes(pageNum);
     }
 
     render(){
         const pageItems = [];
-        for( let i = 1; i <= this.state.pages; i++){
+        for( let i = 1; i <= this.state.pages; i++) {
             pageItems.push(
-                <Pagination.item 
-                    key={i}
-                    active={i === this.state.page }
-                    onClick={this.handlePage(i)}
-                >{i}</Pagination.item>
+                <Pagination.Item 
+                key={i}
+                active={i === this.state.page}
+                onClick={this.handlePages.bind(this, i)}>
+                {i}
+                </Pagination.Item>
             )
+        
         }
         return (
-            <div className="recipes">
-                { this.props.recipes && this.props.recipes.map((recipe) => (
-                    <div key={recipe.id} className="recipe">
-                        <div className="meta">
-                            <p>{recipe.category_id}</p>
+            <div className="ch-recipes-container">
+                <div className="recipes">
+                    { this.props.recipes && this.props.recipes.map((recipe) => (
+                        <div key={recipe.id} className="recipe">
+                            <div className="meta">
+                                <p>{recipe.category_id}</p>
+                            </div>
+
+                            <h2>{recipe.title}</h2>
+
+                            <div className="actions">
+                                <ViewRecipe recipe={recipe} />
+                                <EditRecipe recipe={recipe} />
+                                <DeleteRecipe recipe={recipe} />
+                            </div>
                         </div>
-
-                        <h2>{recipe.title}</h2>
-
-                        <div className="actions">
-                            <ViewRecipe recipe={recipe} />
-                            <EditRecipe recipe={recipe} />
-                            <DeleteRecipe recipe={recipe} />
-                        </div>
-                    </div>
-                ))}
-
-                <Pagination>
-                    <Pagination bsSize="medium">
-                        {pageItems}
+                    ))}
+                </div>
+                <footer>
+                    <Pagination>
+                        <Pagination bsSize="medium">{pageItems}</Pagination>
                     </Pagination>
-                </Pagination>
+                </footer>
             </div>
-
         )
     }
 
@@ -76,7 +78,7 @@ RecipePage.propTypes = {
     getRecipesRequest: PropTypes.func.isRequired,
     recipes: PropTypes.instanceOf(Object).isRequired,
     page: PropTypes.number.isRequired,
-    pages: PropTypes.number.isRequired,
+    pages: PropTypes.number.isRequired
 }
 
 function mapStateToProps(state){
