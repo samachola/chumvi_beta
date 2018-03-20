@@ -4,6 +4,7 @@ import PropTypes from 'proptypes';
 import { getRecipesRequest } from '../../actions/auth';
 import EditRecipe from './modals/EditRecipe';
 import ViewRecipe from './modals/ViewRecipe';
+import DeleteRecipe from './modals/DeleteRecipe';
 
 class RecipePage extends Component {
     constructor(props){
@@ -31,7 +32,7 @@ class RecipePage extends Component {
                         <div className="actions">
                             <ViewRecipe recipe={recipe} />
                             <EditRecipe recipe={recipe} />
-                            <i className="fas fa-trash-alt"/>
+                            <DeleteRecipe recipe={recipe} />
                         </div>
                     </div>
                 ))}

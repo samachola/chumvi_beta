@@ -7,7 +7,8 @@ import {
     EDIT_CATEGORY_SUCCESS,
     DELETE_CATEGORY_SUCCESS,
     NEW_RECIPE_SUCCESS,
-    EDIT_RECIPE_SUCCESS
+    EDIT_RECIPE_SUCCESS,
+    DELETE_RECIPE_SUCCESS
     
 } from '../types/types';
 import api from '../api/api';
@@ -62,6 +63,11 @@ export const editRecipe = (recipe) => ({
     recipe
 });
 
+export const deleteRecipe = (recipe) => ({
+    type: DELETE_RECIPE_SUCCESS,
+    recipe
+});
+
 export const loginRequest = credentials => dispatch =>
   api.user.login(credentials).then(user => {
     localStorage.token = user.token;
@@ -69,7 +75,7 @@ export const loginRequest = credentials => dispatch =>
     dispatch(userLoggedIn(user));
   });
 
-  export const signup = credentials => dispatch =>
+export const signup = credentials => dispatch =>
   api.user.register(credentials).then(newuser => {
     dispatch(userRegistered(newuser));
   });
@@ -113,6 +119,11 @@ export const addRecipeRequest = (data) => dispatch =>
 export const editRecipeRequest = (data, id) => dispatch =>
     api.recipes.update(data, id).then(recipe => {
         dispatch(editRecipe(recipe));
+    });
+
+export const deleteRecipeRequest = (id) => dispatch =>
+    api.recipes.delete(id).then(recipe => {
+        dispatch(deleteRecipe(recipe));
     });
 
 

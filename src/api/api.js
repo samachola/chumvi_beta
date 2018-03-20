@@ -15,6 +15,7 @@ export default {
     recipes: {
       all: () => axios.get(`${API_URL}/recipe`).then(response => response.data),
       add: data => axios.post(`${API_URL}/recipe`, data).then(response => response.data),
-      update: (data, id) => axios.put(`${API_URL}/recipe/${id}`, data).then(response => response.data)
+      update: (data, id) => axios.put(`${API_URL}/recipe/${id}`, data).then(response => response.data),
+      delete: id => axios.delete(`${API_URL}/recipe/${id}`).then(response => response.data)
     }
 }
