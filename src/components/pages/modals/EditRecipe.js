@@ -93,7 +93,7 @@ class EditRecipe extends Component {
                             </div>
 
                             <div className="inputwrapper">
-                                <label htmlFor="category">
+                                <label htmlFor="category_id">
                                 Category 
                                 { errors.category_id && <span className="errs">{ errors.category_id }</span> }
                                 </label>
@@ -128,7 +128,7 @@ class EditRecipe extends Component {
                                 </label>
                                 <textarea 
                                     name="steps" 
-                                    value={data.steps} 
+                                    value={data.steps}
                                     id="steps" 
                                     cols="30" 
                                     rows="5" 

@@ -445,3 +445,35 @@ p {
 .err p {
     color: #ec1717;
 }
+
+.view-recipe {
+    width: 70%;
+    margin: 0 auto;
+}
+
+.view-recipe .title {
+    text-align: center;
+}
+
+.view-recipe .title h2 {
+    font-size: 1.2em;
+    color: #3a5365;
+    text-transform: uppercase;
+}
+
+.view-recipe .content {
+    text-align: center;
+    padding: 1em;
+}
+
+.view-recipe .content .ingredients {
+    color: #CCC;
+    text-transform: uppercase;
+    font-weight: 100;
+}
+
+.view-recipe .content .steps {
+    text-transform: uppercase;
+    font-size: 1em;
+    color: #3a5365;
+}

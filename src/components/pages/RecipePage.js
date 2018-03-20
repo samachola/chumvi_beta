@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'proptypes';
 import { getRecipesRequest } from '../../actions/auth';
 import EditRecipe from './modals/EditRecipe';
+import ViewRecipe from './modals/ViewRecipe';
 
 class RecipePage extends Component {
     constructor(props){
@@ -28,7 +29,7 @@ class RecipePage extends Component {
                         <h2>{recipe.title}</h2>
 
                         <div className="actions">
-                            <i className="fas fa-exclamation-circle"/>
+                            <ViewRecipe recipe={recipe} />
                             <EditRecipe recipe={recipe} />
                             <i className="fas fa-trash-alt"/>
                         </div>
