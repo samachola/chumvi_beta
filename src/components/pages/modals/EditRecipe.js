@@ -101,6 +101,7 @@ class EditRecipe extends Component {
                                     <option>-</option>
                                     { this.props.categories && this.props.categories.map(category => (
                                         <option 
+                                        selected={data.category_id === category.id}
                                         key={category.id} 
                                         value={category.id}>{category.category_name}</option>
                                     ))}
