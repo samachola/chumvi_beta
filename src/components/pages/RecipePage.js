@@ -61,7 +61,7 @@ export class RecipePage extends Component {
                         <div key={recipe.id} className="recipe">
                             <div className="meta">
                                 {this.props.categories && this.props.categories.map((category) => (
-                                    category.id === recipe.category_id ? <p> {category.category_name} </p>: <p/>
+                                    category.id === recipe.category_id ? <p key={category.id}> {category.category_name} </p>: <p key={category.id}/>
                                 ))}
                                 
                             </div>

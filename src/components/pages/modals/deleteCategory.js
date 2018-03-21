@@ -5,7 +5,7 @@ import { Button, Modal } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
 import { deleteCategoryRequest } from '../../../actions/auth';
 
-class DeleteCategory extends React.Component {
+export class DeleteCategory extends React.Component {
     constructor(props){
         super(props);
         this.state = {

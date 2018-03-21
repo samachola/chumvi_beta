@@ -6,7 +6,7 @@ import 'semantic-ui-css/semantic.min.css';
 import { editCategoryRequest } from '../../../actions/auth';
 
 
-class EditCategory extends Component {
+export class EditCategory extends Component {
     constructor(props) {
         super(props);
         this.state = {

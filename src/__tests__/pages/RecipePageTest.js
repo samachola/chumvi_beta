@@ -15,13 +15,13 @@ describe('<RecipePage />', () => {
             ingredients: 'Maize, Chilli powder',
             steps: 'Boil Maize, add chilli, enjoy',
             title: 'chai boiled'
-        },
+        }
+    ],
+    categories: [
         {
-            category_id: 24,
-            id: 37,
-            ingredients: 'Maize, Chilli powder',
-            steps: 'Boil Maize, add chilli, enjoy',
-            title: 'chai boiled'
+            'category_description': 'test category description',
+            'category_name': 'category name',
+            'id': 23
         }
     ],
     page: 1,
