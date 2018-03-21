@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/samachola/chumvi_beta.svg?branch=master)](https://travis-ci.org/samachola/chumvi_beta) [![Coverage Status](https://coveralls.io/repos/github/samachola/chumvi_beta/badge.svg?branch=master)](https://coveralls.io/github/samachola/chumvi_beta?branch=master)
+.
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
