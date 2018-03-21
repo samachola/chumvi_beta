@@ -60,7 +60,10 @@ export class RecipePage extends Component {
                     { this.props.recipes && this.props.recipes.map((recipe) => (
                         <div key={recipe.id} className="recipe">
                             <div className="meta">
-                                <p>{recipe.category_id}</p>
+                                {this.props.categories && this.props.categories.map((category) => (
+                                    category.id === recipe.category_id ? <p> {category.category_name} </p>: <p/>
+                                ))}
+                                
                             </div>
 
                             <h2>{recipe.title}</h2>
@@ -89,14 +92,16 @@ RecipePage.propTypes = {
     recipes: PropTypes.instanceOf(Array).isRequired,
     page: PropTypes.number.isRequired,
     pages: PropTypes.number.isRequired,
-    search: PropTypes.string.isRequired
+    search: PropTypes.string.isRequired,
+    categories: PropTypes.instanceOf(Array).isRequired
 }
 
 function mapStateToProps(state){
     return {
       recipes: state.recipes.recipes,
       page: state.recipes.page,
-      pages: state.recipes.pages
+      pages: state.recipes.pages,
+      categories: state.category.categories,
     }
 }
 
