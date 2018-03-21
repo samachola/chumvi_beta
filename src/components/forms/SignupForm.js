@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Validator from 'validator';
 import PropTypes from 'proptypes';
 
-class SignupForm extends Component {
+export class SignupForm extends Component {
     constructor(props){
         super(props);
         this.state = {
@@ -95,7 +95,7 @@ class SignupForm extends Component {
                 </div>
 
                 <div className="login-action">
-                        <input type="submit" value="login" />
+                        <input type="submit" id="submit" value="login" />
                         <Link to="/">Forgot Password..?</Link>
                 </div>
             </form>

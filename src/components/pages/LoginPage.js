@@ -6,7 +6,7 @@ import bg from '../video/bg.mp4' ;
 import LoginForm from '../forms/LoginForm';
 import { loginRequest } from '../../actions/auth';
 
-class LoginPage extends Component {
+export class LoginPage extends Component {
 
   submit = (data) => 
     this.props.loginRequest(data).then(() => this.props.history.push('/dashboard'));

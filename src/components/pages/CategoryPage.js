@@ -6,7 +6,7 @@ import EditCategory from './modals/editCategory';
 import DeleteCategory from './modals/deleteCategory';
 import ViewCategory from './modals/viewCategory';
 
-class CategoryPage extends Component {
+export class CategoryPage extends Component {
     state = {
         loading: false
     }
@@ -37,7 +37,7 @@ class CategoryPage extends Component {
 
 CategoryPage.propTypes = {
     getCategoriesRequest: PropTypes.func.isRequired,
-    categories: PropTypes.arrayOf.isRequired
+    categories: PropTypes.instanceOf(Array).isRequired
 }
 
 function mapStateToProps(state){

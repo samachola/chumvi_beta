@@ -6,7 +6,7 @@ import bg from '../video/bg.mp4';
 import SignupForm from '../forms/SignupForm';
 import { signup } from '../../actions/auth';
 
-class SignupPage extends Component {
+export class SignupPage extends Component {
     submit = (data) => 
       this.props.signup(data).then(() => this.props.history.push('/login'));
 

@@ -75,7 +75,7 @@ class EditRecipe extends Component {
         const { data, errors } = this.state;
         return(
             <Modal trigger={<Button><i className="fas fa-edit"/></Button>}>
-                <Modal.Header className="modalheader">Update Category</Modal.Header>
+                <Modal.Header className="modalheader">Update Recipe</Modal.Header>
                 <Modal.Content image>
                     <Modal.Description>
                     <form className="category-form" onSubmit={this.onSubmit}>
@@ -136,7 +136,7 @@ class EditRecipe extends Component {
                             </div>
 
                             <div className="login-action">
-                                <input type="submit" value="Add Recipe"/>
+                                <input type="submit" value="Update Recipe"/>
                             </div>  
                         </form>
                     </Modal.Description>

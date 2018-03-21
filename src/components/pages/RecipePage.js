@@ -7,7 +7,7 @@ import EditRecipe from './modals/EditRecipe';
 import ViewRecipe from './modals/ViewRecipe';
 import DeleteRecipe from './modals/DeleteRecipe';
 
-class RecipePage extends Component {
+export class RecipePage extends Component {
     constructor(props){
         super(props);
         this.state = {
@@ -26,7 +26,6 @@ class RecipePage extends Component {
     }
 
     getRecipes(pageNum, search){
-        console.log(pageNum, search);
         this.props.getRecipesRequest(pageNum, search).then(() => this.setState({ page: this.props.page, pages: this.props.pages }));
     }
 
@@ -87,7 +86,7 @@ class RecipePage extends Component {
 
 RecipePage.propTypes = {
     getRecipesRequest: PropTypes.func.isRequired,
-    recipes: PropTypes.instanceOf(Object).isRequired,
+    recipes: PropTypes.instanceOf(Array).isRequired,
     page: PropTypes.number.isRequired,
     pages: PropTypes.number.isRequired,
     search: PropTypes.string.isRequired
