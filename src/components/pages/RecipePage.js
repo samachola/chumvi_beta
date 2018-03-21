@@ -37,7 +37,7 @@ class RecipePage extends Component {
     searchHandler(e){
         const searchValue = e.target.value;
         this.setState({ searchParam: searchValue });
-        this.getRecipes(this.state.page, this.state.searchParam);
+        this.getRecipes(this.state.page, searchValue);
     }
 
     render(){
