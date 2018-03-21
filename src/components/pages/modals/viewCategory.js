@@ -3,7 +3,7 @@ import PropTypes from 'proptypes';
 import { Popup, Button } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
 
-class ViewCategory extends React.Component {
+export class ViewCategory extends React.Component {
     constructor(props){
         super(props);
         this.state = {

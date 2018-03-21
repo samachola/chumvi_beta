@@ -3,7 +3,7 @@ import PropTypes from 'proptypes';
 import { Button, Modal } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
 
-class ViewRecipe extends React.Component {
+export class ViewRecipe extends React.Component {
     constructor(props){
         super(props);
         this.state = {

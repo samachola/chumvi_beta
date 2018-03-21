@@ -5,7 +5,7 @@ import { Modal } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
 import { addRecipeRequest } from '../../../actions/auth';
 
-class AddRecipe extends React.Component {
+export class AddRecipe extends React.Component {
     constructor(props){
         super(props);
         this.state = {
@@ -140,7 +140,7 @@ class AddRecipe extends React.Component {
 }
 
 AddRecipe.propTypes = {
-    categories: PropTypes.arrayOf.isRequired,
+    categories: PropTypes.instanceOf(Array).isRequired,
     addRecipeRequest: PropTypes.func.isRequired
 }
 function mapStateToProps(state){

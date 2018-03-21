@@ -1,13 +1,12 @@
 import React from 'react';
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import { DeleteCategory } from '../../components/pages/modals/deleteCategory';
+import { ViewCategory } from '../../../components/pages/modals/viewCategory';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-describe('<DeleteCategory />', () => {
+describe('<ViewCategory />', () => {
   const props = {
-    deleteCategoryRequest: jest.fn(),
     category: {
             'category_description': 'test category description',
             'category_name': 'category name',
@@ -16,6 +15,6 @@ describe('<DeleteCategory />', () => {
   }
 
   it('should render itself without crashing', () => {
-  shallow(<DeleteCategory {...props}/>).dive();
+  shallow(<ViewCategory {...props}/>).dive();
   });
 });
