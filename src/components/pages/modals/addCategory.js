@@ -5,7 +5,7 @@ import { Button, Modal } from 'semantic-ui-react'
 import 'semantic-ui-css/semantic.min.css';
 import { addCategoryRequest } from '../../../actions/auth';
 
-class AddCategory extends React.Component {
+export class AddCategory extends React.Component {
     constructor(props){
         super(props);
         this.state = {
@@ -39,7 +39,7 @@ class AddCategory extends React.Component {
                             serverErrors.category_name = err.response.data.message
                         }
                     }
-                    
+
                     if(err.response.status === 422) {
                         if(err.response.data.errors.category_name){
                             serverErrors.category_name = err.response.data.errors.category_name[0];
@@ -100,7 +100,7 @@ class AddCategory extends React.Component {
                             </div>
 
                             <div className="login-action">
-                                <input type="submit" value="Add Category"/>
+                                <input type="submit" id="submit" value="Add Category"/>
                             </div>  
                         </form>
                     </Modal.Description>
