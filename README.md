@@ -1,5 +1,7 @@
-[![Build Status](https://travis-ci.org/samachola/chumvi_beta.svg?branch=master)](https://travis-ci.org/samachola/chumvi_beta) [![Coverage Status](https://coveralls.io/repos/github/samachola/chumvi_beta/badge.svg?branch=master)](https://coveralls.io/github/samachola/chumvi_beta?branch=master)
-.
+[![Build Status](https://travis-ci.org/samachola/chumvi_beta.svg?branch=master)](https://travis-ci.org/samachola/chumvi_beta) [![Coverage Status](https://coveralls.io/repos/github/samachola/chumvi_beta/badge.svg?branch=master)](https://coveralls.io/github/samachola/chumvi_beta?branch=master) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/f7ac2be399bc44b3b4f8ce0dd84b16c0)](https://www.codacy.com/app/samachola/chumvi_beta?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=samachola/chumvi_beta&amp;utm_campaign=Badge_Grade)
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
