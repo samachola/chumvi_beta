@@ -6,7 +6,7 @@ import 'semantic-ui-css/semantic.min.css';
 import { editRecipeRequest } from '../../../actions/auth';
 
 
-class EditRecipe extends Component {
+export class EditRecipe extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -150,7 +150,7 @@ class EditRecipe extends Component {
 EditRecipe.propTypes = {
     recipe: PropTypes.instanceOf(Object).isRequired,
     editRecipeRequest: PropTypes.func.isRequired,
-    categories: PropTypes.instanceOf(Object).isRequired
+    categories: PropTypes.instanceOf(Array).isRequired
 }
 
 function mapStateToProps(state){

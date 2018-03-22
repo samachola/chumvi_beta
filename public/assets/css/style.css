@@ -519,3 +519,10 @@ footer {
     background: #3a5365 !important;
     color: #E8CE4D;
 }
+
+
+/* .ui.modal>.content>.description {
+    display: block;
+    -ms-flex: 0 auto !important;
+    flex: 0 auto !important;
+} */
