@@ -3,12 +3,11 @@ import PropTypes from 'proptypes';
 import { Button, Modal } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
 
+// View a single Recipe
 export class ViewRecipe extends React.Component {
     constructor(props){
         super(props);
-        this.state = {
-
-        }
+        this.state = {}
     }
     
     render(){
@@ -36,6 +35,7 @@ export class ViewRecipe extends React.Component {
 }
 
 ViewRecipe.propTypes = {
+    // map recipe state to props
     recipe: PropTypes.instanceOf(Object).isRequired
 }
 

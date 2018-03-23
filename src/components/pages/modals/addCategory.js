@@ -5,7 +5,9 @@ import { Button, Modal } from 'semantic-ui-react'
 import 'semantic-ui-css/semantic.min.css';
 import { addCategoryRequest } from '../../../actions/auth';
 
+// Add a new category.
 export class AddCategory extends React.Component {
+    // Define category data to state
     constructor(props){
         super(props);
         this.state = {
@@ -24,6 +26,7 @@ export class AddCategory extends React.Component {
     });
 
     onSubmit = (e) => {
+        // send catefory data to API
         e.preventDefault()
         const errors = this.validate(this.state.data);
         this.setState({ errors })
@@ -56,6 +59,7 @@ export class AddCategory extends React.Component {
     }
 
     validate = (data) => {
+        // Validate input data and return errors
         const errors = {};
         
         if(!data.category_name) errors.category_name = "Category Name Is Required";
