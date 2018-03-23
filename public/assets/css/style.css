@@ -505,6 +505,11 @@ p {
     color: #3a5365;
 }
 
+.view-recipe .content .steps span,
+.view-recipe .content .ingredients span {
+    color: #E8CE4D;
+}
+
 footer {
     clear: both;
     width: 90%;
