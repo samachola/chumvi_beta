@@ -9,9 +9,7 @@ Chumvi - A react/redux webapp for food enthusiasts to upload and share their rec
 You can find the demo [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
 
 
-## Sending Feedback
 
-We are always open to [your feedback](https://github.com/facebookincubator/create-react-app/issues).
 
 ## Folder Structure
 
@@ -58,7 +56,7 @@ They will not be included in the production build so you can use them for things
 
 ## Available Scripts
 
-In the project directory, you can run:
+After you clone the project, you can run the following scripts in the root directory:
 
 ### `npm start`
 
@@ -77,3 +75,7 @@ See the section about [running tests](#running-tests) for more information.
 
 Builds the app for production to the `build` folder.<br>
 It correctly bundles React in production mode and optimizes the build for the best performance.
+
+## Sending Feedback
+
+We are always open to [your feedback](https://github.com/samachola/chumvi_beta/issues).
