@@ -1,6 +1,8 @@
 import { 
     USER_LOGGED_IN, 
     USER_LOGGED_OUT, 
+    USER_RESET_PASSWORD,
+    PASSWORD_RESET_SUCCESS,
     GET_USER_CATEGORIES, 
     GET_USER_RECIPES, 
     NEW_CATEGORY_SUCCESS,
@@ -26,6 +28,16 @@ export const userLoggedOut = () => ({
 export const userRegistered = (newuser) => ({
     type: USER_LOGGED_OUT,
     newuser
+});
+
+export const userRequestReset = (user) => ({
+    type: USER_RESET_PASSWORD,
+    user
+});
+
+export const passwordReset = (user) => ({
+    type: PASSWORD_RESET_SUCCESS,
+    user
 });
 
 export const getCategories = (categories) => ({
@@ -85,6 +97,16 @@ export const logout = () => dispatch => {
     setAuthorizationToken()
     dispatch(userLoggedOut());
 };
+
+export const passwordRequest = user => dispatch => 
+    api.user.forgot(user).then(resetURL => {
+        dispatch(userRequestReset(resetURL));
+    });
+
+export const passwordResetRequest = (user, token) => dispatch => 
+    api.user.reset(user, token).then(newpass => {
+        dispatch(passwordRequest(newpass));
+    });
 
 export const getCategoriesRequest = () => dispatch =>
     api.categories.all().then(categories => {

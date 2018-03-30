@@ -4,7 +4,9 @@ const API_URL = 'http://127.0.0.1:5000/api-v0';
 export default {
     user: {
       login: data => axios.post(`${API_URL}/auth/login`, data).then(response => response.data),
-      register: data => axios.post(`${API_URL}/auth/register`, data).then(response => response.data)
+      register: data => axios.post(`${API_URL}/auth/register`, data).then(response => response.data),
+      forgot: data => axios.post(`${API_URL}/auth/forgot_password`, data).then(response => response.data),
+      reset: (data, token) => axios.post(`${API_URL}/auth/reset_password/${token}`, data).then(response => response.data),
     },
     categories: {
       all: () => axios.get(`${API_URL}/category`).then(response => response.data),

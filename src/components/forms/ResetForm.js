@@ -1,18 +1,17 @@
 import React, { Component } from 'react';
-import Validator from 'validator';
 import PropTypes from 'proptypes';
-import ResetPassword from '../pages/modals/resetPassword';
 
-export class LoginForm extends Component {
+class ResetForm extends Component {
     constructor(props){
         super(props);
         this.state = {
             data: {
-                email: '',
+                confirm_password: '',
                 password: ''
             },
             loading: false,
-            errors: {}
+            errors: {},
+            token: props.token
         }
 
         this.onChange = this.onChange.bind(this);
@@ -30,10 +29,10 @@ export class LoginForm extends Component {
         if(Object.keys(errors).length === 0) {
             this.setState({ loading: true })
             this.props
-            .submit(this.state.data)
+            .submit(this.state.data, this.props.token)
             .catch(err => {
                 const serverErrors = {};
-                if(err.response.data.errors.email){
+                if(err.response.data.errors.passoword){
                     serverErrors.email = err.response.data.errors.email[0];
                 }
 
@@ -48,9 +47,10 @@ export class LoginForm extends Component {
 
     validate = (data) => {
         const errors = {};
-        
-        if(!Validator.isEmail(data.email)) errors.email = 'Not a valid email address';
+
         if(!data.password) errors.password = "Password Field Is Required";
+        if(!data.confirm_password) errors.confirm_password = "Password Field Is Required";
+        if(data.confirm_password !== data.password) errors.password = "Passwords Did Not Match";
 
         return errors;
     }
@@ -60,37 +60,38 @@ export class LoginForm extends Component {
         return (
             <form onSubmit={ this.onSubmit } loading={loading.toString()}>
                 <div className="inputwrapper">
-                        <label htmlFor="email">
-                            Email 
-                            { errors.email && <span className="errs">{ errors.email }</span> }
+                        <label htmlFor="password">
+                            Password
+                            { errors.password && <span className="errs">{ errors.password }</span> }
                         </label>
-                        <input type="email" value={data.email} name="email" id="email" onChange={this.onChange} />
+                        <input type="password" value={data.password} name="password" id="password" onChange={this.onChange} />
                 </div>
 
                 <div className="inputwrapper">
-                        <label htmlFor="password">
-                            Password 
-                            { errors.password && <span className="errs">{ errors.password }</span> }
+                        <label htmlFor="confirm_password">
+                            Confirm Password 
+                            { errors.confirm_password && <span className="errs">{ errors.confirm_password }</span> }
                         </label>
                         <input 
                             type="password" 
-                            value={data.password} 
-                            name="password"  
-                            id="password" 
+                            value={data.confirm_password} 
+                            name="confirm_password"  
+                            id="confirm_password" 
                             onChange={this.onChange} />
                 </div>
 
                 <div className="login-action">
-                        <input type="submit" id="submit" value="login" />
-                        <ResetPassword />
+                        <input type="submit" id="submit" value="reset password" />
+                        
                 </div>
             </form>
         );
     }
 }
 
-LoginForm.propTypes = {
-    submit: PropTypes.func.isRequired
+ResetForm.propTypes = {
+    submit: PropTypes.func.isRequired,
+    token: PropTypes.string.isRequired
 }
 
-export default LoginForm;
+export default ResetForm;
