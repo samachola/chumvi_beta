@@ -19,8 +19,9 @@ export class ViewRecipe extends React.Component {
                         <div className="view-recipe">
                             <div className="title"><h2>{ this.props.recipe.title }</h2></div>
                             <div className="content">
-                                <p className="ingredients">{ this.props.recipe.ingredients } </p>
+                                <p className="ingredients"><span>ingredients: </span>{ this.props.recipe.ingredients } </p>
                                 <p className="steps">
+                                    <span>procedure: </span>
                                     { this.props.recipe.steps }
                                 </p>
                             </div>
