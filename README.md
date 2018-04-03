@@ -6,7 +6,7 @@ Chumvi - A react/redux webapp for food enthusiasts to upload and share their rec
 
 <br>
 
-You can find the demo [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
+You can find the demo [here](https://chumvi-react.herokuapp.com/).
 
 
 
